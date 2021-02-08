@@ -4,7 +4,7 @@ import pandas as pd
 import calendar
   
 
-
+#This file deals with data related to stops made to refuel on gas. 
 
 #Main to execute all functions in the data
 def main(file_name):
@@ -28,9 +28,9 @@ def read_data(file_name):
     return df
 
 
-#Total Money Spent of Gas
+#Total Money Spent on Gas
 def total_cost(df):
-    print("\nExercise 1:")
+    print("\nTotal Money Spent on Gas:")
     amt_spent = df.gallons * df.cost
     total = amt_spent.sum()
     total = round(total, 2)
@@ -40,7 +40,7 @@ def total_cost(df):
 
 #Refueling Locations Visited Once
 def least_common_locs(df):
-    print("\nExercise 2:")
+    print("\nRefueling locations visited exactly once:")
     location_count = df.location.value_counts()
     unique_locations = location_count[location_count <= 1]
     print(unique_locations.count())
@@ -48,7 +48,7 @@ def least_common_locs(df):
 
 #10 most common fueling locations and how often they were visted 
 def most_common_locs(df):
-    print("\nExercise 3:")
+    print("\nMost Common Refueling Locations:")
     df_location_count = pd.DataFrame(df.location.value_counts())
     df_location_count = df_location_count.reset_index()
     df_location_count.columns = ['location', 'count']
@@ -64,7 +64,7 @@ def most_common_locs(df):
 
 #Total visits to each state
 def state_totals(df):
-    print("\nExercise 4:")
+    print("\nStops Made by State:")
     states = df.location.str[-2:]
     state_count = pd.DataFrame(states.value_counts())
     state_count = state_count.reset_index()
@@ -81,7 +81,7 @@ def state_totals(df):
 
 #Unique dates of fuelings
 def unique_dates(df):
-   print("\nExercise 5:")
+   print("\nUnique Fueling Dates:")
    dates = []
    for i in df['date']:
        if pd.isna(i):
@@ -98,7 +98,7 @@ def unique_dates(df):
 
 #Average price for gas per month
 def month_avg(df):
-    print("\nExercise 6:")
+    print("\nAverage Gas Price per Month:")
     cost = []
     months_num = []
     for index, row in df.iterrows():

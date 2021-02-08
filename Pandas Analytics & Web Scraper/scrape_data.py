@@ -41,3 +41,4 @@ with open('awesome_data.csv', 'w', newline = '', encoding='utf-8') as f:
     for i in df.index:
         writer.writerow([df['Country/Dependency'][i],df['Population Size'][i],df['Percent of World Population'][i]])
 
+## The output of this web scrape can be found in the 'awesome_data.csv' file which is contained in this folder
